@@ -1,0 +1,29 @@
+nav {
+    font-size: 15px;
+    font: italic;
+    text-align:center;
+    font-weight: bold;
+}
+button {
+    border: 0.3px solid black;
+    height: 20px;
+    width: 60px;
+}
+container {
+    display: grid;
+    grid-template-columns: repeat(9, 0fr);
+    /* grid-auto-rows: 30px; */
+    margin: 10px;
+    padding: 30px;
+    outline: dashed 1px black;
+    justify-content: center;
+   
+    
+}
+
+.cell {
+    border: 0.3px solid black;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+}
