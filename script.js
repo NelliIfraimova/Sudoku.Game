@@ -58,7 +58,7 @@ for (let i = 1; i <= rows; i++) {
   //if the value already exists in the row, column and block, the cell should flash red
   //otherwise the cell should accept the value and flash green for 1 second, and no longer be clickable
 const cells= document.querySelectorAll('.cell')
-console.log(cells)
+// console.log(cells)
 
 /////////////
 //when the user clicks on a cell, we have to get the cell's row and column class
@@ -67,23 +67,28 @@ console.log(cells)
 
 
 cells.forEach(cell => {
-    const cellClassColumn = cell.className[5];
-    const cellClassRow = cell.className[7];
+   
+
     cell.addEventListener('click', function(event) {
-  
+        //when we click on the cell it has to grab its row and column class
+        const cellClassColumn = cell.className[5];
+        const cellClassRow = cell.className[7];
+        console.log(cellClassColumn, cellClassRow)
         let num = prompt("1-9")
         if (num >= 1 && num <= 9){
-            
-            if(cellClassRow.innerHTML !== num && cellClassColumn.innerHTML !== num){
+
+            if(cellClassRow.innerHTML === num || cellClassColumn.innerHTML === num){
                 //we need to read the input of all row and column divs that belong to that intersection and make sure the num does not exist in that intersection
-           
-            cell.innerHTML= num
-            cell.style.textAlign= "center"
-            cell.style.fontSize= "24px"
-            console.log(`valid ${cellClassColumn} ${cellClassRow}`)
+                console.log(`invalid ${cellClassColumn} ${cellClassRow} number already exists in the array`)
+       
+            } else{
+                cell.innerHTML= num
+                cell.style.textAlign= "center"
+                cell.style.fontSize= "24px"
+                console.log(`valid ${cellClassColumn} ${cellClassRow} ${cell.innerHTML}`)
             }
             } else {
-                console.log('invalid, please enter a digit 1-9')
+                console.log(`invalid, please enter a digit 1-9 ${cellClassColumn} ${cellClassRow}`)
             }
         
     })
