@@ -53,10 +53,7 @@ for (let i = 1; i <= rows; i++) {
     }
   }
 
-  //we need a function that allows each cell to be clicked, the user should be able to input a value 1-9 to the cell
-  //if the value is invalid, the box should flash red for 2 seconds
-  //if the value already exists in the row, column and block, the cell should flash red
-  //otherwise the cell should accept the value and flash green for 1 second, and no longer be clickable
+//we need to be able to click on the cell and have a function check if the input exists in the cell's row and column
 const cells= document.querySelectorAll('.cell')
 // console.log(cells)
 
@@ -68,29 +65,12 @@ const cells= document.querySelectorAll('.cell')
 
 cells.forEach(cell => {
    
-    const cellClassColumns = cell.className[5];
-    const cellClassRows = cell.className[7];
-   
-    
+    const cellClassColumn = cell.className[5];
+    const cellClassRow = cell.className[7];
+
+
+
     cell.addEventListener('click', function(event) {
         //when we click on the cell it has to grab its row and column class
-        // cellClassColumns.innerHTML= null
-        // cellClassRows.innerHTML= null
-        console.log(cellClassColumns, cellClassRows)
-        let num = prompt("1-9")
-        let userInput
-        userInput= num
-        if (userInput >= 1 && userInput <= 9){
-                
-                cell.innerHTML= num
-                cell.style.textAlign= "center"
-                cell.style.fontSize= "24px"
-                console.log(`valid ${cellClassColumns} ${cellClassRows} ${cell.innerHTML}`)
-       
-            } else {
-                console.log(`invalid, please enter a digit 1-9 ${cellClassColumns} ${cellClassRows}`)
-            }
-        
-    })
-})
- //
+        console.log(cellClassColumn, cellClassRow)
+    })})
